@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Business Search</title>
+        <link rel="stylesheet" type= "text/css" href= "styles/styles.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="search">
+                <div className="img-container">
+                    <img className="img" src="styles/city.jpg" />
+                    <div className="title">
+                        <h2>Business Search</h2>
+                        <h3>Fill out the form to get businesses near you!</h3>
+                    </div>
+                </div>
+                <div className="form-container">
+                    <form id="form">
+                        <div className="input_row">
+                            <label for="keyword">Keyword<span id="asterisk">*</span></label><br>
+                            <input className="text_box" type="text" id="keyword" name="keyword" required><br>
+                        </div>
+                        <div className="section_2">
+                            <div className="input_row_2">
+                                <label for="distance">Distance(miles)</label><br>
+                                <input className="text_box" type="text" id="distance" name="distance" value="10" required>
+                            </div>
+                            <div className="input_row_3">
+                                <label for="category">Category <span id="asterisk">*</span></label>
+                                <select name="category" className="text_box" id="category" required>
+                                    <option value="all">Default</option>
+                                    <option value="arts">Arts & Entertainment</option>
+                                    <option value="health">Health & Medical</option>
+                                    <option value="hotelstravel">Hotels & Travel</option>
+                                    <option value="food">Food</option>
+                                    <option value="professional">Professional Services</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="input_row">
+                            <label for="location">Location <span id="asterisk">*</span></label><br>
+                            <input className="text_box" type="text" id="location" name="location" required><br>
+                        </div>
+                        <hr>
+                        <div className="input_row">
+                            <label id="locate" for="auto-locate">Want us to auto-detect your location? Check here</label>
+                            <input type="checkbox" id="auto-locate" name="auto-locate" value="auto-locate" onclick="disableLocationBox()">
+                        </div>
+                        <div className="section_2">
+                            <input id="submit" className="button" type="submit" value="SUBMIT">
+                            <input id="reset" className="button" type="button" value="CLEAR" onclick="resetToDefault()">
+                        </div>
+                    </form>
+                </div> 
+            </div>
+            <div id="grid"></div>
+            <div id="detail"></div>
+        </div>
+        <script src="javascript/pagescript.js"></script>
+    </body>
+</html>
