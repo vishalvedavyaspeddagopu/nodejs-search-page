@@ -62,6 +62,23 @@ app.get('/api/autocomplete', (req, res) => {
         });
 });
 
+app.get('/api/geocoding', (req, res) => {
+    let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${req.query.location}&key=AIzaSyCjjsZZeqjH4xjyNhzu6RYND8kif389U7w`;
+
+    console.log({
+        params: {...req.query, 'key': 'AIzaSyCjjsZZeqjH4xjyNhzu6RYND8kif389U7w'}
+    });
+
+    axios.get(url, {
+        params: {...req.query, 'key': 'AIzaSyCjjsZZeqjH4xjyNhzu6RYND8kif389U7w'}
+    })
+        .then(response => res.send(response.data))
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
+});
+
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/react-front-end/build/index.html'));
 });
